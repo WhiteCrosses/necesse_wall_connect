@@ -1,0 +1,136 @@
+--- Necesse crash log ---
+Generated on: 2025-12-21 20h26m17s
+At C:\Users\szymo\IdeaProjects\ExampleMod\latest-crash.log
+Game state: MainMenu
+Game version: 1.1
+Game language: pl
+Platform build: 21248051
+Platform name: steam
+Authentication: 1
+Launch parameters: "-dev 1" "-mod build/jar/"
+Found 1 loaded mods:
+	fair.examplemod, v1.1 - Example Mod
+Found 0 not enabled mods:
+
+Exceptions:
+java.lang.RuntimeException: java.util.concurrent.ExecutionException
+	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteList(LevelDrawUtils.java:162)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$prepareDraw$41(LevelDrawUtils.java:619)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordPerformance(PerformanceTimerManager.java:135)
+	at necesse.engine.gameLoop.tickManager.Performance.record(Performance.java:44)
+	at necesse.gfx.drawables.LevelDrawUtils.prepareDraw(LevelDrawUtils.java:614)
+	at necesse.level.maps.Level.prepareDraw(Level.java:497)
+	at necesse.engine.state.MainMenu.prepareDrawScene(MainMenu.java:432)
+	at necesse.gfx.Renderer.lambda$drawTick$0(Renderer.java:108)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordPerformance(PerformanceTimerManager.java:135)
+	at necesse.engine.gameLoop.tickManager.Performance.record(Performance.java:44)
+	at necesse.gfx.Renderer.lambda$drawTick$5(Renderer.java:107)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordConstantPerformance(PerformanceTimerManager.java:121)
+	at necesse.engine.gameLoop.tickManager.Performance.recordConstant(Performance.java:20)
+	at necesse.gfx.Renderer.drawTick(Renderer.java:100)
+	at necesse.engine.gameLoop.ClientGameLoop.update(ClientGameLoop.java:86)
+	at necesse.engine.gameLoop.tickManager.TickManager.tickLogic(TickManager.java:98)
+	at necesse.engine.gameLoop.GameLoop.runMainGameLoop(GameLoop.java:24)
+	at necesse.engine.loading.ClientLoader.startGame(ClientLoader.java:389)
+	at necesse.StartPlatformClient.start(StartPlatformClient.java:15)
+	at StartSteamClient.main(StartSteamClient.java:6)
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteRaw(LevelDrawUtils.java:143)
+	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteList(LevelDrawUtils.java:154)
+	... 19 more
+Caused by: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+	at necesse.level.gameObject.WallObject.addWallDrawOptions(WallObject.java:376)
+	at necesse.level.gameObject.WallObject.addDrawables(WallObject.java:390)
+	at necesse.level.maps.regionSystem.layers.ObjectRegionLayer.addObjectDrawablesByRegion(ObjectRegionLayer.java:292)
+	at necesse.level.maps.regionSystem.managers.ObjectLayerManager.addObjectDrawables(ObjectLayerManager.java:92)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$addTileBasedDrawProcesses$19(LevelDrawUtils.java:284)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordPerformance(PerformanceTimerManager.java:113)
+	at necesse.engine.gameLoop.tickManager.Performance.record(Performance.java:10)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$addTileBasedDrawProcesses$20(LevelDrawUtils.java:280)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$executeLogic$6(LevelDrawUtils.java:130)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.lang.RuntimeException: java.util.concurrent.ExecutionException
+	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteList(LevelDrawUtils.java:162)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$prepareDraw$41(LevelDrawUtils.java:619)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordPerformance(PerformanceTimerManager.java:135)
+	at necesse.engine.gameLoop.tickManager.Performance.record(Performance.java:44)
+	at necesse.gfx.drawables.LevelDrawUtils.prepareDraw(LevelDrawUtils.java:614)
+	at necesse.level.maps.Level.prepareDraw(Level.java:497)
+	at necesse.engine.state.MainGame.prepareDrawScene(MainGame.java:544)
+	at necesse.gfx.Renderer.lambda$drawTick$0(Renderer.java:108)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordPerformance(PerformanceTimerManager.java:135)
+	at necesse.engine.gameLoop.tickManager.Performance.record(Performance.java:44)
+	at necesse.gfx.Renderer.lambda$drawTick$5(Renderer.java:107)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordConstantPerformance(PerformanceTimerManager.java:121)
+	at necesse.engine.gameLoop.tickManager.Performance.recordConstant(Performance.java:20)
+	at necesse.gfx.Renderer.drawTick(Renderer.java:100)
+	at necesse.engine.gameLoop.ClientGameLoop.update(ClientGameLoop.java:86)
+	at necesse.engine.gameLoop.tickManager.TickManager.tickLogic(TickManager.java:98)
+	at necesse.engine.gameLoop.GameLoop.runMainGameLoop(GameLoop.java:24)
+	at necesse.engine.loading.ClientLoader.startGame(ClientLoader.java:389)
+	at necesse.StartPlatformClient.start(StartPlatformClient.java:15)
+	at StartSteamClient.main(StartSteamClient.java:6)
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteRaw(LevelDrawUtils.java:143)
+	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteList(LevelDrawUtils.java:154)
+	... 19 more
+Caused by: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+	at necesse.level.gameObject.WallObject.addWallDrawOptions(WallObject.java:376)
+	at necesse.level.gameObject.WallObject.addDrawables(WallObject.java:390)
+	at necesse.level.maps.regionSystem.layers.ObjectRegionLayer.addObjectDrawablesByRegion(ObjectRegionLayer.java:292)
+	at necesse.level.maps.regionSystem.managers.ObjectLayerManager.addObjectDrawables(ObjectLayerManager.java:92)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$addTileBasedDrawProcesses$19(LevelDrawUtils.java:284)
+	at necesse.engine.gameLoop.tickManager.PerformanceTimerManager.recordPerformance(PerformanceTimerManager.java:113)
+	at necesse.engine.gameLoop.tickManager.Performance.record(Performance.java:10)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$addTileBasedDrawProcesses$20(LevelDrawUtils.java:280)
+	at necesse.gfx.drawables.LevelDrawUtils.lambda$executeLogic$6(LevelDrawUtils.java:130)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+Username: szymo
+OS: Microsoft Windows 11 build 26200
+OS arch: amd64
+CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+Memory total: 34.09 GB
+Memory used: 24.65 GB
+Java path: C:\Users\szymo\.jdks\temurin-17.0.17
+Java version: 17.0.17
+JVM arguments:
+	-XX:+UnlockExperimentalVMOptions
+	-XX:+UseG1GC
+	-XX:G1NewSizePercent=20
+	-XX:G1ReservePercent=20
+	-XX:MaxGCPauseMillis=50
+	-XX:G1HeapRegionSize=32M
+	-Xms512m
+	-Xmx4G
+	-Dfile.encoding=UTF-8
+	-Duser.country=PL
+	-Duser.language=pl
+	-Duser.variant
+LWJGL version: 3.3.2+13
+AppData path: C:\Users\szymo\AppData\Roaming\Necesse\
+Working dir: C:\Users\szymo\IdeaProjects\ExampleMod
+Natives path: C:\Users\szymo\AppData\Local\Temp\lwjgl_szymo\3.3.2+13\x64
+JVM memory max: 4.29 GB
+JVM memory used: 666.68 MB / 1.11 GB (60.21%)
+
+Graphics card: Intel, Intel(R) Iris(R) Xe Graphics
+OpenGL version: 4.6.0 - Build 32.0.101.7077
+Found 0 displays:
+FBO: GL30
+
+Running server: No
+
+Running client: No
