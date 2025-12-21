@@ -56,7 +56,7 @@ import static necesse.level.gameObject.WallObject.getAdvancedLight;
  * "@Advice.Argument(n)" - The annotated parameter is mapped to the n argument passed into the target method.
  */
 
-@ModMethodPatch(target = WallObject.class, name = "addWallDrawOptions", arguments = {SharedTextureDrawOptions.class, Level.class, int.class, int.class, GameLight.class, TickManager.class, GameCamera.class, PlayerMob.class})
+@ModMethodPatch(target = WallObject.class, name = "isConnectedWall", arguments = {GameObject.class})
 public class ExampleMethodPatch {
     @Advice.OnMethodEnter(
             skipOn = Advice.OnNonDefaultValue.class
@@ -66,65 +66,10 @@ public class ExampleMethodPatch {
     }
     @Advice.OnMethodExit
     static void onExit(@Advice.This WallObject target,
-                                  @Advice.Argument(0) SharedTextureDrawOptions options,
-                                  @Advice.Argument(1) Level level,
-                                  @Advice.Argument(2) int tileX,
-                                  @Advice.Argument(3) int tileY,
-                                  @Advice.Argument(4) GameLight lightOverride,
-                                  @Advice.Argument(5) TickManager tickManager,
-                                  @Advice.Argument(6) GameCamera camera,
-                                  @Advice.Argument(7) PlayerMob perspective) {
-        GameLog.out.println("Server Option: :");
-        Performance.record(tickManager, "wallSetup", () -> {
-            System.out.println("ExampleMethodPatch: onEnter");
-            int drawX = camera.getTileDrawX(tileX);
-            int drawY = camera.getTileDrawY(tileY);
-            GameObject[] adj = level.getAdjacentObjects(tileX, tileY);
-            boolean allIsSameWall = true;
-            boolean[] sameWall = new boolean[adj.length];
-            boolean forceDrawTop = false;
-            boolean forceRemoveBot = false;
-
-            for (int i = 0; i < adj.length; ++i) {
-                GameObject adjObject = adj[i];
-                // maybe should patch isConnectedWall ?
-                boolean connectedWall = true; // boolean connectedWall = this.isConnectedWall(adjObject);
-                sameWall[i] = connectedWall;
-                // allIsSameWall = allIsSameWall && connectedWall;
-                if (connectedWall) {
-                    if (i == 1) {
-                        if (adjObject instanceof WallObject && ((WallObject) adjObject).isWallDrawingTop()) {
-                            forceDrawTop = true;
-                        }
-                    } else if (i == 6 && adjObject instanceof WallObject && ((WallObject) adjObject).isWallDrawingTop()) {
-                        forceRemoveBot = true;
-                    }
-                }
-            }
-
-            float alpha = 1.0F;
-            if (perspective != null && !Settings.hideUI && !Settings.hideCursor) {
-                Rectangle alphaRec = new Rectangle(tileX * 32 - 16, tileY * 32 - 32, 64, 48);
-                if (perspective.getCollision().intersects(alphaRec)) {
-                    alpha = 0.5F;
-                } else if (alphaRec.contains(camera.getX() + WindowManager.getWindow().mousePos().sceneX, camera.getY() + WindowManager.getWindow().mousePos().sceneY)) {
-                    alpha = 0.5F;
-                }
-            }
-
-            GameLight[] lights;
-            if (lightOverride == null) {
-                Point[] var10003 = Level.adjacentGettersWithCenter;
-                Objects.requireNonNull(level);
-                lights = (GameLight[]) level.getRelative(tileX, tileY, var10003, level::getLightLevelWall, GameLight[]::new);
-            } else {
-                lights = new GameLight[9];
-                Arrays.fill(lights, lightOverride);
-            }
-
-            // Trying to allow for calling overloaded methods
-            target.addWallDrawOptions((SharedTextureDrawOptions)options, (GameTextureSection)target.wallTexture, (int)drawX, (int)drawY, (GameLight[])lights, (float)alpha, (boolean[])sameWall, (boolean)allIsSameWall, (boolean)forceRemoveBot, (boolean)forceDrawTop);
-            // this.addWallDrawOptions(options, this.wallTexture, drawX, drawY, lights, alpha, sameWall, allIsSameWall, forceDrawTop, forceRemoveBot);
-        });
+                       @Advice.Argument(0) GameObject object,
+                       @Advice.Return(readOnly = false) boolean returnVal){
+        GameLog.out.println("Inside ExampleMethodPatch onExit: ");
+        // return object == this || this.connectedWalls.contains(object.getID());
+        returnVal = true;
     }
 }
