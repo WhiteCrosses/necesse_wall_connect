@@ -87,8 +87,10 @@ public class ExampleMethodPatch {
 
             for (int i = 0; i < adj.length; ++i) {
                 GameObject adjObject = adj[i];
-                boolean connectedWall = true;
+                // maybe should patch isConnectedWall ?
+                boolean connectedWall = true; // boolean connectedWall = this.isConnectedWall(adjObject);
                 sameWall[i] = connectedWall;
+                // allIsSameWall = allIsSameWall && connectedWall;
                 if (connectedWall) {
                     if (i == 1) {
                         if (adjObject instanceof WallObject && ((WallObject) adjObject).isWallDrawingTop()) {
@@ -120,7 +122,9 @@ public class ExampleMethodPatch {
                 Arrays.fill(lights, lightOverride);
             }
 
+            // Trying to allow for calling overloaded methods
             target.addWallDrawOptions((SharedTextureDrawOptions)options, (GameTextureSection)target.wallTexture, (int)drawX, (int)drawY, (GameLight[])lights, (float)alpha, (boolean[])sameWall, (boolean)allIsSameWall, (boolean)forceRemoveBot, (boolean)forceDrawTop);
+            // this.addWallDrawOptions(options, this.wallTexture, drawX, drawY, lights, alpha, sameWall, allIsSameWall, forceDrawTop, forceRemoveBot);
         });
     }
 }
