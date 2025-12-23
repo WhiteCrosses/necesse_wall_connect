@@ -9,7 +9,7 @@ Platform name: steam
 Authentication: 1
 Launch parameters: "-dev 1" "-mod build/jar/"
 Found 1 loaded mods:
-	fair.examplemod, v1.1 - Example Mod
+	fair.wallconnect, v1.1 - Example Mod
 Found 0 not enabled mods:
 
 Exceptions:
@@ -34,13 +34,13 @@ java.lang.RuntimeException: java.util.concurrent.ExecutionException
 	at necesse.engine.loading.ClientLoader.startGame(ClientLoader.java:389)
 	at necesse.StartPlatformClient.start(StartPlatformClient.java:15)
 	at StartSteamClient.main(StartSteamClient.java:6)
-Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void wallconnect.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and wallconnect.ExampleMethodPatch are in unnamed module of loader 'app')
 	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
 	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteRaw(LevelDrawUtils.java:143)
 	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteList(LevelDrawUtils.java:154)
 	... 19 more
-Caused by: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+Caused by: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void wallconnect.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and wallconnect.ExampleMethodPatch are in unnamed module of loader 'app')
 	at necesse.level.gameObject.WallObject.addWallDrawOptions(WallObject.java:376)
 	at necesse.level.gameObject.WallObject.addDrawables(WallObject.java:390)
 	at necesse.level.maps.regionSystem.layers.ObjectRegionLayer.addObjectDrawablesByRegion(ObjectRegionLayer.java:292)
@@ -76,13 +76,13 @@ java.lang.RuntimeException: java.util.concurrent.ExecutionException
 	at necesse.engine.loading.ClientLoader.startGame(ClientLoader.java:389)
 	at necesse.StartPlatformClient.start(StartPlatformClient.java:15)
 	at StartSteamClient.main(StartSteamClient.java:6)
-Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void wallconnect.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and wallconnect.ExampleMethodPatch are in unnamed module of loader 'app')
 	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
 	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteRaw(LevelDrawUtils.java:143)
 	at necesse.gfx.drawables.LevelDrawUtils.awaitExecuteList(LevelDrawUtils.java:154)
 	... 19 more
-Caused by: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void examplemod.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and examplemod.ExampleMethodPatch are in unnamed module of loader 'app')
+Caused by: java.lang.IllegalAccessError: class necesse.level.gameObject.WallObject tried to access private method 'void wallconnect.ExampleMethodPatch.lambda$onExit$1(necesse.gfx.camera.GameCamera, int, int, necesse.level.maps.Level, necesse.entity.mobs.PlayerMob, necesse.level.maps.light.GameLight, necesse.level.gameObject.WallObject, necesse.gfx.drawOptions.texture.SharedTextureDrawOptions)' (necesse.level.gameObject.WallObject and wallconnect.ExampleMethodPatch are in unnamed module of loader 'app')
 	at necesse.level.gameObject.WallObject.addWallDrawOptions(WallObject.java:376)
 	at necesse.level.gameObject.WallObject.addDrawables(WallObject.java:390)
 	at necesse.level.maps.regionSystem.layers.ObjectRegionLayer.addObjectDrawablesByRegion(ObjectRegionLayer.java:292)

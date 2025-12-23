@@ -5,19 +5,22 @@ plugins {
 // Change the values below this to your mods values
 // To change the project name, edit the settings.gradle file
 
-project.ext.modID = "fair.examplemod" // The unique id of your mod. Must be all lowercase and cannot use special characters.
-project.ext.modName = "Example Mod" // The display name of your mod.
-project.ext.modVersion = "1.1" // Your current builds version. Must follow the xx.xx... format.
+project.ext.modID = "whitecrosses.wallconnect" // The unique id of your mod. Must be all lowercase and cannot use special characters.
+project.ext.modName = "Connect my walls" // The display name of your mod.
+project.ext.modVersion = "1.2" // Your current builds version. Must follow the xx.xx... format.
 project.ext.gameVersion = "1.1" // The target game version.
-project.ext.modDescription = "Just an example mod" // Short description of what your mod is.
-project.ext.author = "Fair" // Your name
+project.ext.modDescription = "Connect visually walls of different type.\n" +
+        "\n" +
+        "\n" +
+        "Big thanks to @snoobinoob at Necesse's mod-development discord - big part of the code is their's" // Short description of what your mod is.
+project.ext.author = "WhiteCrosses" // Your name
 
 /**
  * When setting clientside to true, it means servers do not need this mod for clients to connect and vice versa.
  * IMPORTANT: If you set this to true, make sure that your mod does not add any content or do anything
  * that could cause clients and servers to desync. This includes registering any items, objects, tiles, packets etc.
  */
-project.ext.clientside = false
+project.ext.clientside = true
 
 /**
  * The other mod dependencies of this mod
